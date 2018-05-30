@@ -2526,7 +2526,7 @@ response <a for=/>header</a> can be used to require checking a <a for=/>request<
 <p>Its <a for=header>value</a> <a>ABNF</a>:
 
 <pre>
-Cross-Origin-Resource-Policy     = %x73.61.6D.65 / %x73.61.6D.65.2D.73.69.74.65 ; "same" / "same-site", case-sensitive</pre>
+Cross-Origin-Resource-Policy     = %x73.61.6D.65.2D.6F.72.69.67.69.6E / %x73.61.6D.65.2D.73.69.74.65 ; "same-origin" / "same-site", case-sensitive</pre>
 
 <p>To perform a <dfn>cross-origin resource policy check</dfn>, given a <var>request</var> and
 <var>response</var>, run these steps:</p>
@@ -2550,11 +2550,11 @@ Cross-Origin-Resource-Policy     = %x73.61.6D.65 / %x73.61.6D.65.2D.73.69.74.65 
   `<a http-header><code>Cross-Origin-Resource-Policy</code></a>` and <var>response</var>'s
   <a for=response>header list</a>.
 
-  <p class=note>This means that `<code>Cross-Origin-Resource-Policy: same-site, same</code>` ends up
-  as <b>allowed</b> below as it will never match anything. Two or more
+  <p class=note>This means that `<code>Cross-Origin-Resource-Policy: same-site, same-origin</code>`
+  ends up as <b>allowed</b> below as it will never match anything. Two or more
   `<a http-header><code>Cross-Origin-Resource-Policy</code></a>` headers will have the same effect.
 
- <li><p>If <var>policy</var> is `<code>same</code>`, then return <b>blocked</b>.
+ <li><p>If <var>policy</var> is `<code>same-origin</code>`, then return <b>blocked</b>.
 
  <li><p>If <var>request</var>'s <a for=request>origin</a>'s <a for=url>host</a> is <a>same site</a>
  with <var>request</var>'s <a for=request>current url</a>'s <a for=url>host</a>, then return
